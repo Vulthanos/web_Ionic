@@ -1,0 +1,6 @@
+{
+	"appId": "com.vulthanos.app",
+	"appName": "vulthanosIonic",
+	"webDir": "www",
+	"bundledWebRuntime": false
+}
