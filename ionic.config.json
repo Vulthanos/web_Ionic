@@ -1,0 +1,7 @@
+{
+  "name": "vulthanosIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
