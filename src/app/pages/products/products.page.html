@@ -1,9 +1,55 @@
+<link rel="stylesheet" type="text/css" href="/assets/CSS_Files/slider.css">
+<link rel="stylesheet" type="text/css" href="/assets/CSS_Files/normalize-8.0.1.css">
+<link rel="stylesheet" type="text/css" href="/assets/CSS_Files/glider-1.7.7.css">
+
 <ion-header>
   <ion-toolbar>
-    <ion-title>products</ion-title>
+    <ion-title>Productos</ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngFor="let producto of productos">
-  {{producto.nombre}}
+<ion-content [fullscreen]="true">
+  <h3 class="titulo-apartado">Productos Top</h3>
+
+  <section class="slider-principal">
+    <button aria-label="Atras" class="slider_nav slider_back"><i class="fa-solid fa-circle-chevron-left" id="btn_back"></i></button>
+
+    <ion-slides [options]="option" class="ion-margin-top">
+      <ion-slide>
+        <ion-card>
+          <img class="img" src="https://firebasestorage.googleapis.com/v0/b/vulthanosangular.appspot.com/o/IMGS%2Fresult%2Fmando.png?alt=media&token=db695749-0d36-4b0c-a413-54dab3520c42">
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card>
+          <img class="img" src="https://firebasestorage.googleapis.com/v0/b/vulthanosangular.appspot.com/o/IMGS%2Fresult%2Fmonitor.png?alt=media&token=a5db0e96-d2c8-4684-8646-74260b9bac82">
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card>
+          <img class="img" src="https://firebasestorage.googleapis.com/v0/b/vulthanosangular.appspot.com/o/IMGS%2Fresult%2Fportatil.png?alt=media&token=80a4f479-245d-49f5-9cf2-79557fccfd2f">
+        </ion-card>
+      </ion-slide>
+
+      <ion-slide>
+        <ion-card>
+          <img class="img" src="https://firebasestorage.googleapis.com/v0/b/vulthanosangular.appspot.com/o/IMGS%2Fresult%2Fnintendo_switch.png?alt=media&token=a53ff7d3-21d7-42f3-8bec-ddac94046133">
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+    <button aria-label="Adelante" class="slider_nav slider_next"><i class="fa-solid fa-circle-chevron-right" id="btn_next"></i></button>
+
+    <div role="tablist" class="slider_idicators"></div>
+
+
+  </section>
+
+  <section class="muestreoProductos">
+
+  </section>
+
+
 </ion-content>

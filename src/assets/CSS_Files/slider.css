@@ -1,0 +1,51 @@
+
+    .slider_back, .slider_next {
+        position: absolute;
+        display: block;
+        width: fit-content;
+        height: fit-content;
+        border: none;
+        top: calc(100% + -22em);
+        cursor: pointer;
+        line-height: 1.875em;
+        text-align: center;
+        background: none;
+       color: #FFA16D;
+        transition: .3s ease all;
+        opacity: 1;
+    }
+
+    .slider_back {
+        right: 17em;
+    }
+    .slider_next {
+        right: 0.5em;
+    }
+
+    .slider_idicators {
+        margin-top: 1em;
+        max-width: 93%;
+        position: absolute;
+        left: 18em;
+    }
+
+    .fa-circle-chevron-right, .fa-circle-chevron-left {
+        font-size: 2.006875em;
+    }
+
+    .slider_idicators .glider-dot {
+        display: block;
+        width: 2.006875em;
+        height: 2.006875em;
+        background: #FF833D;
+        transition: .3s ease all;
+        opacity: 1;
+    }
+
+    .slider_idicators .glider-dot.active {
+        width: 2.92625em;
+        height: 2.92625em;
+        background: #E34F21;
+        opacity: 1;
+    }
+
