@@ -26,6 +26,9 @@
       <ion-item *ngFor="let item of productsList | async">
         <ion-card class="tarjeta">
           <ion-img class="img" src='{{item.img}}' alt=""></ion-img>
+          <ion-label>{{item.name}}</ion-label>
+          <ion-label>{{item.description}}</ion-label>
+          <ion-label>{{item.price}}</ion-label>
         </ion-card>
       </ion-item>
     </ion-list>
