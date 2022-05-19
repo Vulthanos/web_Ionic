@@ -20,24 +20,23 @@ export class ProductosPage implements OnInit {
     };
 
     products: Observable<Producto[]>;
+    productsList: Observable<Producto[]>;
 
   constructor(
     private productoService: ProductsService) {
     this.products = this.productoService.getProducts();
+    this.productsList = this.productoService.getProductsList();
     }
 
     ngOnInit() {
     }
 
-
   anterior() {
     this.carrusel.slidePrev();
-
   }
 
   siguiente() {
     this.carrusel.slideNext();
-
   }
 }
 

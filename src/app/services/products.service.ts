@@ -12,7 +12,13 @@ export class ProductsService {
   ) { }
 
   getProducts(){
+    return this.af.collection<Producto>('slider').valueChanges();
+  }
+
+  getProductsList(){
     return this.af.collection<Producto>('products').valueChanges();
+
+
   }
 }
 
