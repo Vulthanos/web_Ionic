@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Observable} from 'rxjs';
 import {ProductsService} from '../../services/products.service';
-import {LoadScriptsService} from '../../services/load-scripts.service';
+import {Observable} from 'rxjs';
 import {Producto} from '../../interfaces/producto.interface';
 
 
@@ -12,7 +11,6 @@ import {Producto} from '../../interfaces/producto.interface';
 })
 export class ProductosPage implements OnInit {
 
-    products: Observable<Producto[]>;
     option = {
       slidesPerView: 1.5,
       centeredSlides: true,
@@ -20,16 +18,23 @@ export class ProductosPage implements OnInit {
       spaceBetween: 10
     };
 
-    constructor(private productsService: ProductsService, private _LoadScripts: LoadScriptsService) {
-      this.productsService.getProductos().subscribe();
-      _LoadScripts.LoadHead(['glider']);
-      _LoadScripts.Load(['slider', 'glider']);
+    products: Observable<Producto[]>;
+
+
+  constructor(
+    private productoService: ProductsService) {
+    this.products = this.productoService.getProducts();
     }
 
-
-
-    ngOnInit(): void {
+    ngOnInit() {
     }
+
 
 
 }
+
+
+
+
+
+
