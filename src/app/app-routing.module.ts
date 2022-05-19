@@ -23,7 +23,11 @@ const routes: Routes = [
     loadChildren: () =>
       import('./pages/singup/singup.module').then( m => m.SingupPageModule),
     ...canActivate(redirectLoggedInToHome)
+  },  {
+    path: 'profile',
+    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
   },
+
 ];
 
 @NgModule({
