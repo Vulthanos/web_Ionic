@@ -24,7 +24,6 @@ const routes: Routes = [
       import('./pages/singup/singup.module').then( m => m.SingupPageModule),
     ...canActivate(redirectLoggedInToHome)
   },
-
 ];
 
 @NgModule({

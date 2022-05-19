@@ -1,14 +1,32 @@
-import {Injectable} from '@angular/core';
-import {provideAuth, getAuth, createUserWithEmailAndPassword} from '@angular/fire/auth';
+import { Injectable } from '@angular/core';
+import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserAutenticationService {
 
-  constructor() { }
+  constructor(private auth: Auth) { }
 
-  registerUser(email: string, password: string) {
-    //return createUserWithEmailAndPassword(email, password);
+  async register({email, password}) {
+    try {
+      return await createUserWithEmailAndPassword(this.auth, email, password);
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  }
+
+  async login({email, password}) {
+    try {
+      return await signInWithEmailAndPassword(this.auth, email, password);
+    } catch (e) {
+      console.log(e);
+      return null;
+    }
+  }
+
+  logout() {
+    return signOut(this.auth);
   }
 }
