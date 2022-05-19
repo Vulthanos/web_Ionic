@@ -1,8 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {ProductsService} from '../../services/products.service';
 import {Observable} from 'rxjs';
 import {Producto} from '../../interfaces/producto.interface';
-
+import { IonSlides } from '@ionic/angular';
 
 @Component({
   selector: 'app-productos',
@@ -10,6 +10,7 @@ import {Producto} from '../../interfaces/producto.interface';
   styleUrls: ['./productos.page.scss'],
 })
 export class ProductosPage implements OnInit {
+  @ViewChild('carrusel') carrusel: IonSlides;
 
     option = {
       slidesPerView: 1.5,
@@ -20,7 +21,6 @@ export class ProductosPage implements OnInit {
 
     products: Observable<Producto[]>;
 
-
   constructor(
     private productoService: ProductsService) {
     this.products = this.productoService.getProducts();
@@ -30,7 +30,15 @@ export class ProductosPage implements OnInit {
     }
 
 
+  anterior() {
+    this.carrusel.slidePrev();
 
+  }
+
+  siguiente() {
+    this.carrusel.slideNext();
+
+  }
 }
 
 
