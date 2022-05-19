@@ -1,0 +1,20 @@
+{
+  "slider_images": [
+    {
+      "img": "https://firebasestorage.googleapis.com/v0/b/vulthanosangular.appspot.com/o/IMGS%2Fresult%2Fmando.png?alt=media&token=db695749-0d36-4b0c-a413-54dab3520c42",
+      "link": "/result"
+    },
+    {
+      "img": "https://firebasestorage.googleapis.com/v0/b/vulthanosangular.appspot.com/o/IMGS%2Fresult%2Fmonitor.png?alt=media&token=a5db0e96-d2c8-4684-8646-74260b9bac82",
+      "link": "/result"
+    },
+    {
+      "img": "https://firebasestorage.googleapis.com/v0/b/vulthanosangular.appspot.com/o/IMGS%2Fresult%2Fportatil.png?alt=media&token=80a4f479-245d-49f5-9cf2-79557fccfd2f",
+      "link": "/result"
+    },
+    {
+      "img": "https://firebasestorage.googleapis.com/v0/b/vulthanosangular.appspot.com/o/IMGS%2Fresult%2Fnintendo_switch.png?alt=media&token=a53ff7d3-21d7-42f3-8bec-ddac94046133",
+      "link": "/result"
+    }
+  ]
+}

@@ -9,8 +9,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule} from '@angular/fire/compat/firestore';
-import {environment} from "../environments/environment";
-import {LoadScriptsService} from "./services/load-scripts.service";
+import {environment} from '../environments/environment';
+import {LoadScriptsService} from './services/load-scripts.service';
 
 
 @NgModule({

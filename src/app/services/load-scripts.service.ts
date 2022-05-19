@@ -7,10 +7,11 @@ export class LoadScriptsService {
 
     constructor() { }
 
+  // eslint-disable-next-line @typescript-eslint/naming-convention
     Load(archivos:string[]) {
         for ( let archivo of archivos ) {
             let script = document.createElement('script');
-            script.src = "./assets/JS_Files/" + archivo + ".js";
+            script.src = './assets/JS_Files/' + archivo + '.js';
             script.type = 'text/javascript';
             let body = document.getElementsByTagName('body')[0];
             body.appendChild(script);
@@ -20,7 +21,7 @@ export class LoadScriptsService {
     LoadModules(archivos:string[]) {
         for ( let archivo of archivos ) {
             let script = document.createElement('script');
-            script.src = "./assets/JS_Files/" + archivo + ".js";
+            script.src = './assets/JS_Files/' + archivo + '.js';
             script.type = 'module';
             let body = document.getElementsByTagName('body')[0];
             body.appendChild(script);
@@ -30,7 +31,7 @@ export class LoadScriptsService {
     LoadHead(archivos:string[]) {
         for ( let archivo of archivos ) {
             let script = document.createElement('script');
-            script.src = "./assets/JS_Files/" + archivo + ".js";
+            script.src = './assets/JS_Files/' + archivo + '.js';
             script.type = 'text/javascript';
             let head = document.getElementsByTagName('head')[0];
             head.appendChild(script);
