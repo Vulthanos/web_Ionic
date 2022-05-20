@@ -20,10 +20,10 @@
   </ion-buttons>
   <div class="preview">
     <ion-avatar (click)="changeImage()">
-      <img *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" />
+      <img *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" alt=""/>
       <ng-template #placeholder_avatar>
         <div class="fallback">
-          <p>Select avatar</p>
+          <ion-icon slot="icon-only" name="person-outline" class="avatar"></ion-icon>
         </div>
       </ng-template>
     </ion-avatar>
