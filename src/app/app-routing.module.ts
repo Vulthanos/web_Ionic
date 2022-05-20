@@ -2,13 +2,12 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { redirectUnauthorizedTo, redirectLoggedInTo, canActivate } from '@angular/fire/auth-guard';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
-const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['initio']);
 const redirectLoggedInToProfile = () => redirectLoggedInTo(['profile']);
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'initio',
     loadChildren: () =>
       import('./pages/login/login.module').then( m => m.LoginPageModule),
     ...canActivate(redirectLoggedInToProfile)
@@ -37,7 +36,12 @@ const routes: Routes = [
   {
     path: 'products',
     loadChildren: () => import('./pages/productos/productos.module').then( m => m.ProductosPageModule)
+  },
+  {
+    path: '',
+    loadChildren: () => import('./pages/header/header.module').then( m => m.HeaderPageModule)
   }
+
 ];
 
 @NgModule({
