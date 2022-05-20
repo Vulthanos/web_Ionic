@@ -33,7 +33,7 @@
       <br>
       <p>{{profile.email}}</p>
       <br>
-      <ion-button type="submit" expand="block" shape="round" (click)="edit()">EDITAR DATOS</ion-button>
+      <ion-button type="submit" expand="block" shape="round" color="tertiary" (click)="edit()">EDITAR DATOS</ion-button>
     </div>
     <form [formGroup]="updateDataForm" *ngIf="isEditing" (ngSubmit)="updateData()">
       <ion-item>
@@ -46,7 +46,8 @@
         <ion-note slot="error" *ngIf="(surname.dirty || surname.touched) && surname.errors">Debe ingresar sus apellidos</ion-note>
       </ion-item>
 
-      <ion-button type="submit" expand="block" shape="round" [disabled]="!updateDataForm.valid">CONFIRMAR</ion-button>
+      <ion-button type="submit" expand="block" shape="round" color="tertiary" [disabled]="!updateDataForm.valid">CONFIRMAR</ion-button>
+      <ion-button type="submit" expand="block" shape="round" color="tertiary" (click)="isEditing = false">CANCELAR</ion-button>
     </form>
   </div>
 </ion-content>
