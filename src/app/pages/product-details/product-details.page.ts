@@ -1,8 +1,7 @@
-import {Component, Input, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import {ProductsService} from '../../services/products.service';
-import {Producto} from '../../interfaces/producto.interface';
-import {Observable} from "rxjs";
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-product-details',
@@ -10,18 +9,19 @@ import {Observable} from "rxjs";
   styleUrls: ['./product-details.page.scss'],
 })
 export class ProductDetailsPage implements OnInit {
-
-
-
-  // eslint-disable-next-line @typescript-eslint/member-ordering
-  product: Observable<Producto[]>;
-
-  constructor(private productoService: ProductsService) {
+  productoHijo = this.activador.snapshot.params;
+  constructor(private productoService: ProductsService, private activador: ActivatedRoute) {
 
   }
 
   ngOnInit() {
+  console.log(this.productoHijo);
 
   }
+
+
+
+
+
 }
 
