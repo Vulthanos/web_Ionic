@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import {ProductsService} from '../../services/products.service';
+import {ActivatedRoute} from "@angular/router";
 
 @Component({
   selector: 'app-product-details',
@@ -8,13 +9,13 @@ import {ProductsService} from '../../services/products.service';
   styleUrls: ['./product-details.page.scss'],
 })
 export class ProductDetailsPage implements OnInit {
-
-  constructor(private productoService: ProductsService) {
+  productoHijo = this.activador.snapshot.params;
+  constructor(private productoService: ProductsService, private activador: ActivatedRoute) {
 
   }
 
   ngOnInit() {
-
+  console.log(this.productoHijo);
 
   }
 
