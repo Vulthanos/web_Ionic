@@ -7,7 +7,8 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class ProductsService {
-  private detalles: Observable<Producto[]>;
+
+  private productId: string;
 
   constructor(private af: AngularFirestore){
   }
@@ -19,4 +20,5 @@ export class ProductsService {
   getProductsList(){
     return this.af.collection<Producto>('products').valueChanges();
   }
+
 }

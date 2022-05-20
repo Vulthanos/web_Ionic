@@ -1,4 +1,4 @@
-import {Component, OnInit, ViewChild} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import {ProductsService} from '../../services/products.service';
 import {Observable} from 'rxjs';
 import {Producto} from '../../interfaces/producto.interface';
@@ -23,14 +23,17 @@ export class ProductosPage implements OnInit {
     products: Observable<Producto[]>;
     productsList: Observable<Producto[]>;
 
+
   constructor(
     private productoService: ProductsService,     private af: AngularFirestore) {
     this.products = this.productoService.getProducts();
     this.productsList = this.productoService.getProductsList();
+
   }
 
     ngOnInit() {
     }
+
 
   anterior() {
     this.carrusel.slidePrev();

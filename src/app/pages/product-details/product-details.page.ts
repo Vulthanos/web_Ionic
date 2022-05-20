@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 
 import {ProductsService} from '../../services/products.service';
+import {Producto} from '../../interfaces/producto.interface';
+import {Observable} from "rxjs";
 
 @Component({
   selector: 'app-product-details',
@@ -9,18 +11,17 @@ import {ProductsService} from '../../services/products.service';
 })
 export class ProductDetailsPage implements OnInit {
 
+
+
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  product: Observable<Producto[]>;
+
   constructor(private productoService: ProductsService) {
 
   }
 
   ngOnInit() {
 
-
   }
-
-
-
-
-
 }
 
