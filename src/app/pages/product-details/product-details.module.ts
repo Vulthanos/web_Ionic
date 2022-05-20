@@ -9,12 +9,15 @@ import { ProductDetailsPageRoutingModule } from './product-details-routing.modul
 import { ProductDetailsPage } from './product-details.page';
 
 @NgModule({
-  imports: [
-    CommonModule,
-    FormsModule,
-    IonicModule,
-    ProductDetailsPageRoutingModule
-  ],
-  declarations: [ProductDetailsPage]
+    imports: [
+        CommonModule,
+        FormsModule,
+        IonicModule,
+        ProductDetailsPageRoutingModule
+    ],
+    exports: [
+        ProductDetailsPage
+    ],
+    declarations: [ProductDetailsPage]
 })
 export class ProductDetailsPageModule {}
