@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Productos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <section class="slider-principal">
+    <ion-slides #carrusel [options]="option" class="ion-margin-top">
+      <ion-slide *ngFor="let item of products | async">
+        <ion-card routerLink="/product-details">
+            <ion-img class="img" src='{{item.img}}' alt=""></ion-img>
+        </ion-card>
+      </ion-slide>
+    </ion-slides>
+
+      <ion-button (click)="anterior()" aria-label="Atras" class="slider_nav slider_back"><i class="fa-solid fa-circle-chevron-left" id="btn_back"></i></ion-button>
+      <ion-button (click)="siguiente()"  aria-label="Adelante" class="slider_nav slider_next"><i class="fa-solid fa-circle-chevron-right" id="btn_next"></i></ion-button>
+
+    <div role="tablist" class="slider_idicators"></div>
+  </section>
+
+  <section class="muestreoProductos">
+    <br><ion-label class="tituloApartado">Productos destacados</ion-label>
+    <ion-list>
+        <ion-item  *ngFor="let item of productsList | async">
+          <ion-card class="tarjeta" routerLink="/product-details"><ion-img class="img" src='{{item.img}}' alt="" ></ion-img></ion-card>
+        </ion-item>
+    </ion-list>
+  </section>
+
+</ion-content>

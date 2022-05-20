@@ -1,18 +1,22 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import {AngularFirestore, AngularFirestoreDocument} from '@angular/fire/compat/firestore';
 import {Producto} from '../interfaces/producto.interface';
+import {Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductsService {
-  productsCollection: AngularFirestoreCollection;
+  private detalles: Observable<Producto[]>;
 
-  constructor(private af: AngularFirestore) {
-    this.productsCollection = this.af.collection<Producto>('products');
+  constructor(private af: AngularFirestore){
   }
 
-  getProductos(){
-    return this.productsCollection.valueChanges({ idField: 'id' });
+  getProducts(){
+    return this.af.collection<Producto>('slider').valueChanges();
+  }
+
+  getProductsList(){
+    return this.af.collection<Producto>('products').valueChanges();
   }
 }
