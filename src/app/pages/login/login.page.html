@@ -4,9 +4,8 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content class="ion-padding">
-  <form [formGroup]="credentials" (ngSubmit)="login()">
-
+<ion-content class="login-content">
+  <form [formGroup]="credentials" (ngSubmit)="login()" class="login-form">
     <ion-item>
       <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
       <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">El email es incorrecto</ion-note>

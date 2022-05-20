@@ -12,6 +12,7 @@ import { UserAutenticationService } from '../../services/user-autentication.serv
 export class LoginPage implements OnInit {
 
   credentials: FormGroup;
+  color = '#FFA16D';
 
   constructor(
     private fb: FormBuilder,
