@@ -3,6 +3,7 @@ import {ProductsService} from '../../services/products.service';
 import {Observable} from 'rxjs';
 import {Producto} from '../../interfaces/producto.interface';
 import { IonSlides } from '@ionic/angular';
+import {AngularFirestore} from "@angular/fire/compat/firestore";
 
 @Component({
   selector: 'app-productos',
@@ -23,10 +24,10 @@ export class ProductosPage implements OnInit {
     productsList: Observable<Producto[]>;
 
   constructor(
-    private productoService: ProductsService) {
+    private productoService: ProductsService,     private af: AngularFirestore) {
     this.products = this.productoService.getProducts();
     this.productsList = this.productoService.getProductsList();
-    }
+  }
 
     ngOnInit() {
     }
@@ -38,6 +39,7 @@ export class ProductosPage implements OnInit {
   siguiente() {
     this.carrusel.slideNext();
   }
+
 }
 
 

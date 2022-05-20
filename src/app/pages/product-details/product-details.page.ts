@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Observable} from 'rxjs';
+import {Producto} from '../../interfaces/producto.interface';
+import {ProductsService} from '../../services/products.service';
 
 @Component({
   selector: 'app-product-details',
@@ -6,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./product-details.page.scss'],
 })
 export class ProductDetailsPage implements OnInit {
-  constructor(){}
 
-  ngOnInit(): void {
+  constructor(private productoService: ProductsService) {
+
   }
+
+  ngOnInit() {
+
+
+  }
+
+
+
+
+
 }
 
