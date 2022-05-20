@@ -15,8 +15,8 @@
 
 <ion-content [fullscreen]="true">
   <ion-buttons>
-    <ion-button (click)="logout()">
-      <ion-icon slot="icon-only" name="log-out"></ion-icon>
+    <ion-button class="logoutIcon" (click)="logout()">
+      <ion-icon slot="icon-only" name="log-out" routerLink="/"></ion-icon>
     </ion-button>
   </ion-buttons>
   <div class="preview">
@@ -28,7 +28,7 @@
         </div>
       </ng-template>
     </ion-avatar>
-    <div *ngIf="!isEditing">
+    <div class="profileDetails" *ngIf="!isEditing">
       <h4>{{profile.name}} {{profile.surname}}</h4>
       <br>
       <p>{{profile.email}}</p>
@@ -37,17 +37,17 @@
     </div>
     <form [formGroup]="updateDataForm" *ngIf="isEditing" (ngSubmit)="updateData()">
       <ion-item>
-        <ion-input type="text" placeholder="Nombre" formControlName="name"></ion-input>
+        <ion-input class="profileInput" type="text" placeholder="Nombre" formControlName="name"></ion-input>
         <ion-note slot="error" *ngIf="(name.dirty || name.touched) && name.errors">Debe ingresar su nombre</ion-note>
       </ion-item>
 
       <ion-item>
-        <ion-input type="text" placeholder="Apellidos" formControlName="surname"></ion-input>
+        <ion-input class="profileInput" type="text" placeholder="Apellidos" formControlName="surname"></ion-input>
         <ion-note slot="error" *ngIf="(surname.dirty || surname.touched) && surname.errors">Debe ingresar sus apellidos</ion-note>
       </ion-item>
 
-      <ion-button type="submit" expand="block" shape="round" color="tertiary" [disabled]="!updateDataForm.valid">CONFIRMAR</ion-button>
-      <ion-button type="submit" expand="block" shape="round" color="tertiary" (click)="isEditing = false">CANCELAR</ion-button>
+      <ion-button class="cBtn" type="submit" expand="block" shape="round" color="tertiary" [disabled]="!updateDataForm.valid">CONFIRMAR</ion-button>
+      <ion-button class="cBtn" type="submit" expand="block" shape="round" color="tertiary" (click)="isEditing = false">CANCELAR</ion-button>
     </form>
   </div>
 </ion-content>

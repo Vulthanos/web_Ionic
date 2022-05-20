@@ -11,6 +11,10 @@ ion-button {
   margin-top: 2em;
 }
 
+ion-button:hover {
+  background: rgba(255, 161, 109, .8);
+}
+
 .login-content{
   align-items: center;
   justify-content: center;
