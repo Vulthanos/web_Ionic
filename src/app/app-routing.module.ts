@@ -4,13 +4,14 @@ import { redirectUnauthorizedTo, redirectLoggedInTo, canActivate } from '@angula
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
 const redirectLoggedInToHome = () => redirectLoggedInTo(['home']);
+const redirectLoggedInToProfile = () => redirectLoggedInTo(['profile']);
 
 const routes: Routes = [
   {
     path: '',
     loadChildren: () =>
       import('./pages/login/login.module').then( m => m.LoginPageModule),
-    ...canActivate(redirectLoggedInToHome)
+    ...canActivate(redirectLoggedInToProfile)
   },
   {
     path: 'home',
@@ -20,7 +21,7 @@ const routes: Routes = [
     path: 'registro',
     loadChildren: () =>
       import('./pages/singup/singup.module').then( m => m.SingupPageModule),
-    ...canActivate(redirectLoggedInToHome)
+    ...canActivate(redirectLoggedInToProfile)
   },
   {
     path: 'profile',
