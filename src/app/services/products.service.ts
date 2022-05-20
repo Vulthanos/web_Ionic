@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {AngularFirestore, AngularFirestoreDocument} from '@angular/fire/compat/firestore';
+import {AngularFirestore} from '@angular/fire/compat/firestore';
 import {Producto} from '../interfaces/producto.interface';
 import {Observable} from 'rxjs';
 

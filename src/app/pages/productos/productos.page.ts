@@ -3,7 +3,7 @@ import {ProductsService} from '../../services/products.service';
 import {Observable} from 'rxjs';
 import {Producto} from '../../interfaces/producto.interface';
 import { IonSlides } from '@ionic/angular';
-import {AngularFirestore} from "@angular/fire/compat/firestore";
+import {AngularFirestore} from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-productos',
