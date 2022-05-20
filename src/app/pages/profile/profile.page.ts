@@ -5,7 +5,6 @@ import { UserAutenticationService } from 'src/app/services/user-autentication.se
 import { ProfileService } from 'src/app/services/profile.service';
 import { Camera, CameraResultType, CameraSource } from '@capacitor/camera';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import {HeaderPage} from '../header/header.page';
 
 @Component({
   selector: 'app-profile',
@@ -15,7 +14,6 @@ import {HeaderPage} from '../header/header.page';
 
 export class ProfilePage implements OnInit {
 
-  header: HeaderPage;
   updateDataForm: FormGroup;
   profile = null;
   isEditing = false;
