@@ -21,6 +21,9 @@
   <div class="preview">
     <ion-avatar (click)="changeImage()">
       <img *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" alt=""/>
+      <h4>{{profile.name}} {{profile.surname}}</h4>
+      <br>
+      <p>{{profile.email}}</p>
       <ng-template #placeholder_avatar>
         <div class="fallback">
           <ion-icon slot="icon-only" name="person-outline" class="avatar"></ion-icon>
