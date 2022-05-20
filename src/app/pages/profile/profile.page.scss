@@ -1,0 +1,21 @@
+ion-avatar {
+  width: 8em;
+  height: 8em;
+}
+
+.preview {
+  margin-top: 3.125em;
+  display: flex;
+  justify-content: center;
+}
+
+.fallback {
+  width: 8em;
+  height: 8em;
+  border-radius: 50%;
+  background: #bfbfbf;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
+}
