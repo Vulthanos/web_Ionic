@@ -27,7 +27,7 @@
       <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">La contraseña es incorrecta</ion-note>
     </ion-item>
 
-    <ion-button type="submit" expand="block" shape="round" (click)="register()">REGISTRARSE</ion-button>
+    <ion-button type="submit" expand="block" shape="round" color="tertiary" (click)="register()">REGISTRARSE</ion-button>
     <ion-label>¿Ya tienes cuenta? <a routerLink="/">Inicia sesión</a></ion-label>
 
   </form>
