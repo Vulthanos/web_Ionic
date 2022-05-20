@@ -14,18 +14,19 @@ const routes: Routes = [
   },
   {
     path: 'home',
-    loadChildren: () =>
-      import('./pages/home/home.module').then(m => m.HomePageModule),
-    ...canActivate(redirectUnauthorizedToLogin)
+    loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
   },
   {
     path: 'registro',
     loadChildren: () =>
       import('./pages/singup/singup.module').then( m => m.SingupPageModule),
     ...canActivate(redirectLoggedInToHome)
-  },  {
+  },
+  {
     path: 'profile',
-    loadChildren: () => import('./pages/profile/profile.module').then( m => m.ProfilePageModule)
+    loadChildren: () =>
+      import('./pages/profile/profile.module').then( m => m.ProfilePageModule),
+    ...canActivate(redirectUnauthorizedToLogin)
   },
 
 ];
