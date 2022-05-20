@@ -8,7 +8,7 @@ const redirectLoggedInToProfile = () => redirectLoggedInTo(['profile']);
 
 const routes: Routes = [
   {
-    path: '',
+    path: 'inition',
     loadChildren: () =>
       import('./pages/login/login.module').then( m => m.LoginPageModule),
     ...canActivate(redirectLoggedInToProfile)
@@ -35,7 +35,7 @@ const routes: Routes = [
     loadChildren: () => import('./pages/product-details/product-details.module').then( m => m.ProductDetailsPageModule)
   },
   {
-    path: 'productos',
+    path: '',
     loadChildren: () => import('./pages/productos/productos.module').then( m => m.ProductosPageModule)
   }
 ];

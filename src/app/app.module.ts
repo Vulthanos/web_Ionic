@@ -12,6 +12,9 @@ import { provideStorage, getStorage } from '@angular/fire/storage';
 import { Capacitor } from '@capacitor/core';
 import { indexedDBLocalPersistence, initializeAuth } from 'firebase/auth';
 import { getApp } from 'firebase/app';
+import {AngularFireModule} from '@angular/fire/compat';
+import {AngularFirestoreModule} from '@angular/fire/compat/firestore';
+
 
 @NgModule({
   declarations: [
@@ -23,6 +26,8 @@ import { getApp } from 'firebase/app';
     BrowserModule,
     IonicModule.forRoot(),
     AppRoutingModule,
+    AngularFireModule.initializeApp(firebaseConfig),
+    AngularFirestoreModule,
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => {
       if (Capacitor.isNativePlatform()) {
