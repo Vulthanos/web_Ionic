@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { redirectUnauthorizedTo, redirectLoggedInTo, canActivate } from '@angular/fire/auth-guard';
 
-const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['initio']);
+const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['']);
 const redirectLoggedInToProfile = () => redirectLoggedInTo(['profile']);
 
 const routes: Routes = [
