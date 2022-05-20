@@ -8,6 +8,16 @@
   <form [formGroup]="credentials">
 
     <ion-item>
+      <ion-input type="text" placeholder="Nombre" formControlName="name"></ion-input>
+      <ion-note slot="error" *ngIf="(name.dirty || name.touched) && name.errors">Debe ingresar su nombre</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Apellidos" formControlName="surname"></ion-input>
+      <ion-note slot="error" *ngIf="(surname.dirty || surname.touched) && surname.errors">Debe ingresar sus apellidos</ion-note>
+    </ion-item>
+
+    <ion-item>
       <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
       <ion-note slot="error" *ngIf="(email.dirty || email.touched) && email.errors">El email es incorrecto</ion-note>
     </ion-item>

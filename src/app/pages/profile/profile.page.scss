@@ -3,6 +3,14 @@ ion-avatar {
   height: 8em;
 }
 
+.avatar {
+  width: 6em;
+  height: 6em;
+  display: flex;
+  justify-content: center;
+  color: #000000;
+}
+
 .preview {
   margin-top: 3.125em;
   display: flex;
