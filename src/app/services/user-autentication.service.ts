@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Auth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
-import { doc, Firestore, setDoc } from '@angular/fire/firestore';
+import { doc, Firestore, setDoc, updateDoc } from '@angular/fire/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -27,6 +27,19 @@ export class UserAutenticationService {
       console.log(e);
       return null;
     }
+  }
+
+  async updateNameSurname({name, surname}) {
+    const user = this.auth.currentUser;
+    if(user) {
+      const userDocRef = doc(this.firestore, `users/${user.uid}`);
+      await updateDoc(userDocRef, {
+        name,
+        surname,
+      });
+      return true;
+    }
+    return false;
   }
 
   async login({email, password}) {

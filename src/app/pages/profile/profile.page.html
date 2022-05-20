@@ -21,14 +21,31 @@
   <div class="preview">
     <ion-avatar (click)="changeImage()">
       <img *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" alt=""/>
-      <h4>{{profile.name}} {{profile.surname}}</h4>
-      <br>
-      <p>{{profile.email}}</p>
       <ng-template #placeholder_avatar>
         <div class="fallback">
           <ion-icon slot="icon-only" name="person-outline" class="avatar"></ion-icon>
         </div>
       </ng-template>
     </ion-avatar>
+    <div *ngIf="!isEditing">
+      <h4>{{profile.name}} {{profile.surname}}</h4>
+      <br>
+      <p>{{profile.email}}</p>
+      <br>
+      <ion-button type="submit" expand="block" shape="round" (click)="edit()">EDITAR DATOS</ion-button>
+    </div>
+    <form [formGroup]="updateDataForm" *ngIf="isEditing" (ngSubmit)="updateData()">
+      <ion-item>
+        <ion-input type="text" placeholder="Nombre" formControlName="name"></ion-input>
+        <ion-note slot="error" *ngIf="(name.dirty || name.touched) && name.errors">Debe ingresar su nombre</ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-input type="text" placeholder="Apellidos" formControlName="surname"></ion-input>
+        <ion-note slot="error" *ngIf="(surname.dirty || surname.touched) && surname.errors">Debe ingresar sus apellidos</ion-note>
+      </ion-item>
+
+      <ion-button type="submit" expand="block" shape="round" [disabled]="!updateDataForm.valid">CONFIRMAR</ion-button>
+    </form>
   </div>
 </ion-content>
