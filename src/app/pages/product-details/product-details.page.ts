@@ -32,6 +32,5 @@ export class ProductDetailsPage implements OnInit {
     this.app.addFavoriteProduct(name, img, desription, price);
     this.isFavorite = true;
   }
-
+  
 }
-

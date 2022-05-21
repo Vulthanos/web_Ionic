@@ -18,12 +18,13 @@ const routes: Routes = [
     loadChildren: () => import('./pages/home/home.module').then(m => m.HomePageModule)
   },
   {
+
     path: 'registro',
     loadChildren: () =>
       import('./pages/singup/singup.module').then( m => m.SingupPageModule),
     ...canActivate(redirectLoggedInToProfile)
   },
-  {
+    {
     path: 'profile',
     loadChildren: () =>
       import('./pages/profile/profile.module').then( m => m.ProfilePageModule),
