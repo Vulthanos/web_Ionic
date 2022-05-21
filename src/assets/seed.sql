@@ -1,2 +1,1 @@
-CREATE TABLE IF NOT EXISTS favorites(id INTEGER PRIMARY KEY AUTOINCREMENT, firebaseId TEXT);
-INSERT or IGNORE INTO favorites (id, firebaseId) VALUES (1, 'Firebase product id 1');
+CREATE TABLE IF NOT EXISTS favorites(id INTEGER PRIMARY KEY AUTOINCREMENT, name TEXT, img TEXT, desription TEXT, price TEXT);

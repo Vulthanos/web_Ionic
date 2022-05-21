@@ -1,3 +1,6 @@
 export interface Product {
-  firebaseId: string;
+  name: string;
+  img: string;
+  description: string;
+  price: string;
 }

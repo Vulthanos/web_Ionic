@@ -14,7 +14,9 @@ import { indexedDBLocalPersistence, initializeAuth } from 'firebase/auth';
 import { getApp } from 'firebase/app';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
-
+import { SQLite } from '@ionic-native/sqlite/ngx';
+import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -28,6 +30,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),
     AngularFirestoreModule,
+    HttpClientModule,
     provideFirebaseApp(() => initializeApp(firebaseConfig)),
     provideAuth(() => {
       if (Capacitor.isNativePlatform()) {
@@ -42,6 +45,8 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     provideStorage(() => getStorage()),
   ],
   providers: [
+    SQLite,
+    SQLitePorter,
     {provide: RouteReuseStrategy, useClass: IonicRouteStrategy}
   ],
   bootstrap: [AppComponent],

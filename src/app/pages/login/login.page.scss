@@ -31,9 +31,7 @@ ion-button:hover {
 }
 
 ion-title {
-  position: absolute;
-  left: 15%;
-  top: 0;
+  margin-left: 2em;
   align-items: center;
   justify-content: center;
 }
@@ -42,6 +40,14 @@ ion-title {
   top: 0;
   position: absolute;
   right: 0;
+  width: 3em;
+  height: 3em;
+}
+
+.star{
+  top: 0;
+  position: absolute;
+  right: 3em;
   width: 3em;
   height: 3em;
 }

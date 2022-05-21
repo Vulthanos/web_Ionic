@@ -32,14 +32,15 @@ export class SqliteDbService {
     return this.dbReady.asObservable();
   }
 
-  addProduct(firebaseId) {
-    return this.database.executeSql('INSERT INTO favorites (firebaseId) VALUES (?)', [firebaseId]).then(() => {
+  addProduct(name, img, desription, price) {
+    // eslint-disable-next-line max-len
+    return this.database.executeSql('INSERT INTO favorites (name, img, desription, price) VALUES (?, ?, ?, ?)', [name, img, desription, price]).then(() => {
       this.loadProducts();
     });
   }
 
-  deleteProduct(firebaseId) {
-    return this.database.executeSql('DELETE FROM favorites WHERE firebaseId = ?', [firebaseId]).then(() => {
+  deleteProduct(id) {
+    return this.database.executeSql('DELETE FROM favorites WHERE id = ?', [id]).then(() => {
       this.loadProducts();
     });
   }
@@ -63,7 +64,10 @@ export class SqliteDbService {
       if (data.rows.length > 0) {
         for (let i = 0; i < data.rows.length; i++) {
           products.push({
-            firebaseId: data.rows.item(i).firebaseId
+            name: data.rows.item(i).name,
+            img: data.rows.item(i).img,
+            description: data.rows.item(i).description,
+            price: data.rows.item(i).price,
           });
         }
       }
