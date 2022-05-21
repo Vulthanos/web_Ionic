@@ -7,7 +7,6 @@
 }
 
 ion-title {
-  margin-left: 2em;
   align-items: center;
   justify-content: center;
 }
@@ -28,6 +27,7 @@ ion-title {
   height: 3em;
 }
 
-.heart-icon {
-  transition: 4ms all ease;
+.product-text{
+  color: #fff;
+  font-weight: bold;
 }
