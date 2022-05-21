@@ -7,11 +7,16 @@
 
 <ion-content>
   <ion-card>
-    <img src="{{productoHijo?.img}}">
+    <img src="{{productoHijo?.img}}" alt="">
     <ion-card-header>{{ productoHijo?.name }}</ion-card-header>
     <ion-text id="price">{{ productoHijo?.price }}€</ion-text><br>
     <ion-text id="description">{{ productoHijo?.description }}</ion-text>
   </ion-card>
+
+  <ion-button routerLink="/favoritos" expand="full" >
+    <ion-icon  name="heart-outline"></ion-icon>
+    <ion-icon name="heart-outline" color="danger"></ion-icon>
+  </ion-button>
 
 
 </ion-content>
