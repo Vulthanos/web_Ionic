@@ -18,8 +18,11 @@
     <ion-text id="description" class="product-text">{{ productoHijo?.description }}</ion-text><br>
     <ion-text id="price" class="product-text">{{ productoHijo?.price }}€</ion-text><br>
   </ion-card>
-  <ion-button type="button" shape="round" color="tertiary" (click)="addProduct(productoHijo.name, productoHijo.img, productoHijo.description, productoHijo.price)">
+  <ion-button *ngIf="isLoggedIn" type="button" shape="round" color="tertiary" (click)="addProduct(productoHijo.name, productoHijo.img, productoHijo.description, productoHijo.price)">
     <ion-icon class="heart-icon" slot="icon-only" name="heart-outline" *ngIf="!isFavorite"></ion-icon>
     <ion-icon class="heart-icon" slot="icon-only" name="heart" *ngIf="isFavorite"></ion-icon>
+  </ion-button>
+  <ion-button *ngIf="!isLoggedIn" type="button" shape="round" color="tertiary" routerLink="/initio">
+    <ion-icon class="heart-icon" slot="icon-only" name="heart-outline"></ion-icon>
   </ion-button>
 </ion-content>
