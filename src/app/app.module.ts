@@ -14,6 +14,7 @@ import { indexedDBLocalPersistence, initializeAuth } from 'firebase/auth';
 import { getApp } from 'firebase/app';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import {HttpClientModule} from '@angular/common/http';
 
 
 @NgModule({
@@ -24,6 +25,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     IonicModule.forRoot(),
     AppRoutingModule,
     AngularFireModule.initializeApp(firebaseConfig),

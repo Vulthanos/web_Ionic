@@ -12,7 +12,7 @@ export class SqliteDbService {
   constructor(public storage: SQLite) {
     if (!this.isOpen) {
       this.storage = new SQLite();
-      this.storage.create({ name: 'data.db', location: 'default' }).then((db: SQLiteObject) => {
+      this.storage.create({name: 'data.db', location: 'default'}).then((db: SQLiteObject) => {
         this.db = db;
         // eslint-disable-next-line max-len
         db.executeSql('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, identification INTEGER, name TEXT, lastname text)', []).then(() => {
@@ -25,9 +25,9 @@ export class SqliteDbService {
   }
 
   createUser(identification: number, name: string, lastname: string) {
-    return new Promise ((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       const sql = 'INSERT INTO users (identification, name, lastname) VALUES (?, ?, ?)';
-      this.db.executeSql(sql, [identification, name, lastname]).then((data) =>{
+      this.db.executeSql(sql, [identification, name, lastname]).then((data) => {
         resolve(data);
       }, (error) => {
         reject(error);
@@ -36,7 +36,7 @@ export class SqliteDbService {
   }
 
   getAllUsers() {
-    return new Promise ((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       this.db.executeSql('SELECT * FROM users', []).then((data) => {
         const arrayUsers = [];
         if (data.rows.length > 0) {
@@ -56,4 +56,6 @@ export class SqliteDbService {
     });
   }
 
+
 }
+

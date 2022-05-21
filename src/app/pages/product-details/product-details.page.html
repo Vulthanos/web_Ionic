@@ -1,19 +1,26 @@
 <ion-header>
   <ion-toolbar>
     <img routerLink="/" class="icon" src="https://firebasestorage.googleapis.com/v0/b/vulthanosangular.appspot.com/o/IMGS%2Fheader%2Flogo.png?alt=media&token=bff5153a-1e6f-4244-a626-db9e66a87da1" alt=""/>
-    <ion-title>Detalles del producto</ion-title>
+    <ion-title mode="ios">Detalles del producto</ion-title>
     <div class="fallback">
       <ion-icon slot="icon-only" name="person-outline" class="avatar" routerLink="/profile"></ion-icon>
     </div>
   </ion-toolbar>
 </ion-header>
 
+
 <ion-content>
   <ion-card>
-    <img src="{{productoHijo?.img}}">
+    <img src="{{productoHijo?.img}}" alt="">
     <ion-card-header>{{ productoHijo?.name }}</ion-card-header>
     <ion-text id="price">{{ productoHijo?.price }}€</ion-text><br>
     <ion-text id="description">{{ productoHijo?.description }}</ion-text>
   </ion-card>
+
+  <ion-button expand="full" >
+    <ion-icon  name="heart-outline" ”></ion-icon>
+    <ion-icon color="danger" name="heart-outline"></ion-icon>
+  </ion-button>
+
 
 </ion-content>
