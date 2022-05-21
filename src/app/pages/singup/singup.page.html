@@ -10,7 +10,7 @@
 
 
 <ion-content class="singup-content">
-  <form [formGroup]="credentials">
+  <form [formGroup]="credentials" (ngSubmit)="register()">
 
     <ion-item>
       <ion-input type="text" placeholder="Nombre" formControlName="name"></ion-input>
@@ -32,7 +32,7 @@
       <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">La contraseña es incorrecta</ion-note>
     </ion-item>
 
-    <ion-button type="submit" expand="block" shape="round" color="tertiary" (click)="register()">REGISTRARSE</ion-button>
+    <ion-button type="submit" expand="block" shape="round" color="tertiary" [disabled]="!credentials.valid">REGISTRARSE</ion-button>
     <ion-label>¿Ya tienes cuenta? <a routerLink="/initio">Inicia sesión</a></ion-label>
 
   </form>

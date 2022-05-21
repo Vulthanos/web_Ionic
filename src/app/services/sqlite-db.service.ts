@@ -1,59 +1,75 @@
 import { Injectable } from '@angular/core';
+import { Platform } from '@ionic/angular';
 import { SQLite, SQLiteObject } from '@ionic-native/sqlite/ngx';
+import { SQLitePorter } from '@ionic-native/sqlite-porter/ngx';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { Product } from 'src/app/interfaces/product';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SqliteDbService {
 
-  private db: SQLiteObject;
-  private isOpen: boolean;
+  private database: SQLiteObject;
+  private dbReady: BehaviorSubject<boolean> = new BehaviorSubject(false);
+  // eslint-disable-next-line @typescript-eslint/member-ordering
+  products = new BehaviorSubject([]);
 
-  constructor(public storage: SQLite) {
-    if (!this.isOpen) {
-      this.storage = new SQLite();
-      this.storage.create({ name: 'data.db', location: 'default' }).then((db: SQLiteObject) => {
-        this.db = db;
-        // eslint-disable-next-line max-len
-        db.executeSql('CREATE TABLE IF NOT EXISTS users (id INTEGER PRIMARY KEY AUTOINCREMENT, identification INTEGER, name TEXT, lastname text)', []).then(() => {
-          this.isOpen = true;
-        });
-      }).catch((error) => {
-        console.log(error);
-      });
-    }
-  }
-
-  createUser(identification: number, name: string, lastname: string) {
-    return new Promise ((resolve, reject) => {
-      const sql = 'INSERT INTO users (identification, name, lastname) VALUES (?, ?, ?)';
-      this.db.executeSql(sql, [identification, name, lastname]).then((data) =>{
-        resolve(data);
-      }, (error) => {
-        reject(error);
+  constructor(private plt: Platform, private sqlitePorter: SQLitePorter, private sqlite: SQLite, private http: HttpClient) {
+    this.plt.ready().then(() => {
+      this.sqlite.create({
+        name: 'favoritos.db',
+        location: 'default'
+      }).then((db: SQLiteObject) => {
+        this.database = db;
+        this.seedDatabase();
       });
     });
   }
 
-  getAllUsers() {
-    return new Promise ((resolve, reject) => {
-      this.db.executeSql('SELECT * FROM users', []).then((data) => {
-        const arrayUsers = [];
-        if (data.rows.length > 0) {
-          for (let i = 0; i < data.rows.length; i++) {
-            arrayUsers.push({
-              id: data.rows.item(i).id,
-              identification: data.rows.item(i).identification,
-              name: data.rows.item(i).name,
-              lastname: data.rows.item(i).lastname
-            });
-          }
+  getDatabaseState() {
+    return this.dbReady.asObservable();
+  }
+
+  addProduct(firebaseId) {
+    return this.database.executeSql('INSERT INTO favorites (firebaseId) VALUES (?)', [firebaseId]).then(() => {
+      this.loadProducts();
+    });
+  }
+
+  deleteProduct(firebaseId) {
+    return this.database.executeSql('DELETE FROM favorites WHERE firebaseId = ?', [firebaseId]).then(() => {
+      this.loadProducts();
+    });
+  }
+
+  getProducts(): Observable<Product[]> {
+    return this.products.asObservable();
+  }
+
+  private seedDatabase() {
+    this.http.get('src/assets/seed.sql', { responseType: 'text' }).subscribe(sql => {
+      this.sqlitePorter.importSqlToDb(this.database, sql).then(() => {
+        this.loadProducts();
+        this.dbReady.next(true);
+      }).catch(err => console.log(err));
+    });
+  }
+
+  private loadProducts() {
+    return this.database.executeSql('SELECT * FROM favorites', []).then(data => {
+      const products: Product[] = [];
+      if (data.rows.length > 0) {
+        for (let i = 0; i < data.rows.length; i++) {
+          products.push({
+            firebaseId: data.rows.item(i).firebaseId
+          });
         }
-        resolve(arrayUsers);
-      }, (error) => {
-        reject(error);
-      });
+      }
+      this.products.next(products);
     });
   }
 
 }
+
