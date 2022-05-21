@@ -4,6 +4,7 @@ import { redirectUnauthorizedTo, redirectLoggedInTo, canActivate } from '@angula
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['initio']);
 const redirectLoggedInToProfile = () => redirectLoggedInTo(['profile']);
+const redirectLoggedInToHome = () => redirectLoggedInTo(['']);
 
 const routes: Routes = [
   {
@@ -31,9 +32,7 @@ const routes: Routes = [
 
   {
     path: 'product-details',
-    loadChildren: () =>
-      import('./pages/product-details/product-details.module').then( m => m.ProductDetailsPageModule),
-    ...canActivate(redirectUnauthorizedToLogin)
+    loadChildren: () => import('./pages/product-details/product-details.module').then( m => m.ProductDetailsPageModule)
   },
   {
     path: '',
