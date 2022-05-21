@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
-    <img routerLink="/" class="icon" src="https://firebasestorage.googleapis.com/v0/b/vulthanosangular.appspot.com/o/IMGS%2Fheader%2Flogo.png?alt=media&token=bff5153a-1e6f-4244-a626-db9e66a87da1" alt=""/>
-    <ion-title>Productos</ion-title>
+    <img mode="ios" routerLink="/" class="icon" src="https://firebasestorage.googleapis.com/v0/b/vulthanosangular.appspot.com/o/IMGS%2Fheader%2Flogo.png?alt=media&token=bff5153a-1e6f-4244-a626-db9e66a87da1" alt=""/>
+    <ion-title mode="ios">Productos</ion-title>
     <div class="fallback">
       <ion-icon slot="icon-only" name="star-outline" class="star" routerLink="/favoritos"></ion-icon>
     </div>
@@ -15,7 +15,7 @@
   <section class="slider-principal">
     <ion-slides #carrusel [options]="option" class="ion-margin-top">
       <ion-slide *ngFor="let item of products | async">
-        <ion-card routerLink="/product-details">
+        <ion-card [routerLink]="['/product-details']">
             <ion-img class="img" src='{{item.img}}' alt=""></ion-img>
         </ion-card>
       </ion-slide>
@@ -31,7 +31,7 @@
     <br><ion-label class="tituloApartado">Productos destacados</ion-label>
     <ion-list>
         <ion-item  *ngFor="let item of productsList | async">
-          <ion-card class="tarjeta" [routerLink]="['/product-details', item]" routerLinkActive="active"><ion-img class="img" src='{{item.img}}' alt="" ></ion-img></ion-card>
+          <ion-card class="tarjeta" [routerLink]="['/product-details', item]" ><ion-img class="img" src='{{item.img}}' alt="" ></ion-img></ion-card>
         </ion-item>
     </ion-list>
   </section>
