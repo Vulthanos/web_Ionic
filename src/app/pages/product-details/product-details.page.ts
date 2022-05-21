@@ -11,12 +11,15 @@ import {UserAutenticationService} from '../../services/user-autentication.servic
   styleUrls: ['./product-details.page.scss'],
 })
 export class ProductDetailsPage implements OnInit {
+
   productoHijo = this.activador.snapshot.params;
+
 
   constructor(private productoService: ProductsService,
               private activador: ActivatedRoute,
               public alertController: AlertController,
-              public userService: UserAutenticationService) {
+              public userService: UserAutenticationService,
+             ) {
 
   }
 
@@ -25,10 +28,6 @@ export class ProductDetailsPage implements OnInit {
 
   }
 
-
-  like() {
-
-  }
 }
 
 

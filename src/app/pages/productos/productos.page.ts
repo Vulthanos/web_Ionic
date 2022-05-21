@@ -10,7 +10,7 @@ import {AngularFirestore} from '@angular/fire/compat/firestore';
   templateUrl: './productos.page.html',
   styleUrls: ['./productos.page.scss'],
 })
-export class ProductosPage implements OnInit {
+export class ProductosPage {
   @ViewChild('carrusel') carrusel: IonSlides;
 
     option = {
@@ -30,10 +30,6 @@ export class ProductosPage implements OnInit {
     this.productsList = this.productoService.getProductsList();
 
   }
-
-    ngOnInit() {
-    }
-
 
   anterior() {
     this.carrusel.slidePrev();
