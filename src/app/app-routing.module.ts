@@ -37,8 +37,7 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./pages/productos/productos.module').then( m => m.ProductosPageModule)
-  }
-
+  },
 ];
 
 @NgModule({
