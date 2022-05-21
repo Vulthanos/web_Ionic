@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
 import {ProductsService} from '../../services/products.service';
 import {ActivatedRoute} from '@angular/router';
-import {AlertController} from '@ionic/angular';
-import {UserAutenticationService} from '../../services/user-autentication.service';
+import {AppComponent} from '../../app.component';
+import {ProfileService} from '../../services/profile.service';
 
 @Component({
   selector: 'app-product-details',
@@ -12,22 +11,26 @@ import {UserAutenticationService} from '../../services/user-autentication.servic
 })
 export class ProductDetailsPage implements OnInit {
 
+  isFavorite = false;
+  isLoggedIn: boolean;
   productoHijo = this.activador.snapshot.params;
 
-
-  constructor(private productoService: ProductsService,
-              private activador: ActivatedRoute,
-              public alertController: AlertController,
-              public userService: UserAutenticationService,
-             ) {
-
+  // eslint-disable-next-line max-len
+  constructor(private productoService: ProductsService, private activador: ActivatedRoute, private app: AppComponent, private profileService: ProfileService) {
   }
 
   ngOnInit() {
-  console.log(this.productoHijo);
-
+    console.log(this.productoHijo);
+    if(this.profileService.getLoggedInUser()) {
+      this.isLoggedIn = true;
+    } else {
+      this.isLoggedIn = false;
+    }
   }
 
+  addProduct(name, img, desription, price) {
+    this.app.addFavoriteProduct(name, img, desription, price);
+    this.isFavorite = true;
+  }
+  
 }
-
-
