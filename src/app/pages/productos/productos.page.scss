@@ -1,3 +1,25 @@
+.icon {
+  top: 0;
+  position: absolute;
+  left: 0;
+  width: 3em;
+  height: 3em;
+}
+
+ion-title {
+  margin-left: 2em;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar{
+  top: 0;
+  position: absolute;
+  right: 0;
+  width: 3em;
+  height: 3em;
+}
+
 ion-card{
   width: 100%;
   height: 120px;

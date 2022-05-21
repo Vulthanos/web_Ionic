@@ -1,17 +1,78 @@
-ion-avatar {
-  width: 8em;
-  height: 8em;
+.icon {
+  top: 0;
+  position: absolute;
+  left: 0;
+  width: 3em;
+  height: 3em;
 }
 
-.preview {
-  margin-top: 3.125em;
-  display: flex;
+ion-title {
+  margin-left: 2em;
+  align-items: center;
   justify-content: center;
 }
 
-.fallback {
-  width: 8em;
-  height: 8em;
+.avatar{
+  top: 0;
+  position: absolute;
+  right: 0;
+  width: 3em;
+  height: 3em;
+}
+
+
+ion-avatar {
+  width: 6em;
+  height: 6em;
+}
+
+ion-item {
+  background: none;
+}
+
+.profileInput {
+  background-color: #CEB7E5;
+  border: none;
+  border-radius: 1em;
+  text-align: center;
+  color: #000000;
+  margin-top: 1.5em;
+  height: 55%;
+  width: 100%;
+}
+
+.cBtn {
+  margin-top: 1em;
+}
+
+.logoutIcon {
+  position: absolute;
+  right: 0;
+  top: 0.5em;
+}
+
+.profileDetails {
+  display: block;
+  margin-top: 1em;
+}
+
+.pavatar {
+  width: 4em;
+  height: 4em;
+  display: block;
+  justify-content: center;
+  color: #000000;
+}
+
+.preview {
+  margin-top: 1em;
+  display: block;
+  justify-content: center;
+}
+
+.pfallback {
+  width: 6em;
+  height: 6em;
   border-radius: 50%;
   background: #bfbfbf;
   display: flex;

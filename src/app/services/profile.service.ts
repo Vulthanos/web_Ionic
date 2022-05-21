@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
-import {addDoc, collection, doc, docData, Firestore, setDoc} from '@angular/fire/firestore';
-import {ref, Storage, uploadString, getDownloadURL} from '@angular/fire/storage';
+import { doc, docData, Firestore, updateDoc} from '@angular/fire/firestore';
+import { ref, Storage, uploadString, getDownloadURL } from '@angular/fire/storage';
 import { Photo } from '@capacitor/camera';
 
 @Injectable({
@@ -29,7 +29,7 @@ export class ProfileService {
       await uploadString(storageRef, cameraFile.base64String, 'base64');
       const imageUrl = await getDownloadURL(storageRef);
       const userDocRef = doc(this.firestore, `users/${user.uid}`);
-      await setDoc(userDocRef, {
+      await updateDoc(userDocRef, {
         imageUrl,
       });
       return true;
@@ -39,16 +39,4 @@ export class ProfileService {
     }
   }
 
-  /*async uploadNameSurname(name, surname) {
-    const user = this.auth.currentUser;
-    const userDocRef = doc(this.firestore, `users/${user.uid}`);
-    const newUser = {
-      cart: [],
-      email: user.email,
-      name,
-      surname
-    };
-    const newUserDocRef = await addDoc(collection(this.firestore, 'users'), newUser);
-
-  }*/
 }

@@ -21,6 +21,14 @@ export class SingupPage implements OnInit {
     private router: Router
   ) { }
 
+  get name() {
+    return this.credentials.get('name');
+  }
+
+  get surname() {
+    return this.credentials.get('surname');
+  }
+
   get email() {
     return this.credentials.get('email');
   }
@@ -31,6 +39,8 @@ export class SingupPage implements OnInit {
 
   ngOnInit() {
     this.credentials = this.fb.group({
+      name: ['', [Validators.required, Validators.minLength(3)]],
+      surname: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]]
     });
@@ -42,7 +52,7 @@ export class SingupPage implements OnInit {
     const user = await this.authService.register(this.credentials.value);
     await loading.dismiss();
     if(user) {
-      await this.router.navigateByUrl('/home', {replaceUrl: true});
+      await this.router.navigateByUrl('/profile', {replaceUrl: true});
     } else {
       await this.showAlert('Registro fallido', 'Vuelva a intentarlo');
     }

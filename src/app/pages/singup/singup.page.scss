@@ -1,0 +1,43 @@
+ion-input {
+  background-color: #CEB7E5;
+  border: none;
+  border-radius: 1em;
+  text-align: center;
+  color: #000000;
+  margin-top: 2em;
+}
+
+ion-button {
+  margin-top: 2em;
+}
+
+.singup-content{
+  align-items: center;
+  justify-content: center;
+  justify-self: center;
+  top: 12%;
+}
+
+.icon {
+  top: 0;
+  position: absolute;
+  left: 0;
+  width: 3em;
+  height: 3em;
+}
+
+ion-title {
+  position: absolute;
+  left: 15%;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.avatar{
+  top: 0;
+  position: absolute;
+  right: 0;
+  width: 3em;
+  height: 3em;
+}

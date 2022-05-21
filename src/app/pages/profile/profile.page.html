@@ -1,31 +1,49 @@
+
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Tu perfil
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-header collapse="condense">
-  <ion-toolbar>
-    <ion-title size="large">Tu perfil</ion-title>
+    <img routerLink="/" class="icon" src="https://firebasestorage.googleapis.com/v0/b/vulthanosangular.appspot.com/o/IMGS%2Fheader%2Flogo.png?alt=media&token=bff5153a-1e6f-4244-a626-db9e66a87da1" alt=""/>
+    <ion-title>Tu perfil</ion-title>
+    <div class="fallback">
+      <ion-icon slot="icon-only" name="person-outline" class="avatar" routerLink="/profile"></ion-icon>
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content [fullscreen]="true">
   <ion-buttons>
-    <ion-button (click)="logout()">
-      <ion-icon slot="icon-only" name="log-out"></ion-icon>
+    <ion-button class="logoutIcon" (click)="logout()">
+      <ion-icon slot="icon-only" name="log-out" routerLink="/"></ion-icon>
     </ion-button>
   </ion-buttons>
   <div class="preview">
     <ion-avatar (click)="changeImage()">
-      <img *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" />
+      <img *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" alt=""/>
       <ng-template #placeholder_avatar>
-        <div class="fallback">
-          <p>Select avatar</p>
+        <div class="pfallback">
+          <ion-icon slot="icon-only" name="person-outline" class="pavatar"></ion-icon>
         </div>
       </ng-template>
     </ion-avatar>
+    <div class="profileDetails" *ngIf="!isEditing">
+      <h4>{{profile.name}} {{profile.surname}}</h4>
+      <br>
+      <p>{{profile.email}}</p>
+      <br>
+      <ion-button type="submit" expand="block" shape="round" color="tertiary" (click)="edit()">EDITAR DATOS</ion-button>
+    </div>
+    <form [formGroup]="updateDataForm" *ngIf="isEditing" (ngSubmit)="updateData()">
+      <ion-item>
+        <ion-input class="profileInput" type="text" placeholder="Nombre" formControlName="name"></ion-input>
+        <ion-note slot="error" *ngIf="(name.dirty || name.touched) && name.errors">Debe ingresar su nombre</ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-input class="profileInput" type="text" placeholder="Apellidos" formControlName="surname"></ion-input>
+        <ion-note slot="error" *ngIf="(surname.dirty || surname.touched) && surname.errors">Debe ingresar sus apellidos</ion-note>
+      </ion-item>
+
+      <ion-button class="cBtn" type="submit" expand="block" shape="round" color="tertiary" [disabled]="!updateDataForm.valid">CONFIRMAR</ion-button>
+      <ion-button class="cBtn" type="submit" expand="block" shape="round" color="tertiary" (click)="isEditing = false">CANCELAR</ion-button>
+    </form>
   </div>
 </ion-content>

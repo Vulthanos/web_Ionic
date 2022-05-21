@@ -1,11 +1,26 @@
 <ion-header>
   <ion-toolbar>
+    <img routerLink="/" class="icon" src="https://firebasestorage.googleapis.com/v0/b/vulthanosangular.appspot.com/o/IMGS%2Fheader%2Flogo.png?alt=media&token=bff5153a-1e6f-4244-a626-db9e66a87da1" alt=""/>
     <ion-title>Registrate</ion-title>
+    <div class="fallback">
+      <ion-icon slot="icon-only" name="person-outline" class="avatar" routerLink="/profile"></ion-icon>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+
+<ion-content class="singup-content">
   <form [formGroup]="credentials">
+
+    <ion-item>
+      <ion-input type="text" placeholder="Nombre" formControlName="name"></ion-input>
+      <ion-note slot="error" *ngIf="(name.dirty || name.touched) && name.errors">Debe ingresar su nombre</ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-input type="text" placeholder="Apellidos" formControlName="surname"></ion-input>
+      <ion-note slot="error" *ngIf="(surname.dirty || surname.touched) && surname.errors">Debe ingresar sus apellidos</ion-note>
+    </ion-item>
 
     <ion-item>
       <ion-input type="email" placeholder="Email" formControlName="email"></ion-input>
@@ -17,8 +32,8 @@
       <ion-note slot="error" *ngIf="(password.dirty || password.touched) && password.errors">La contraseña es incorrecta</ion-note>
     </ion-item>
 
-    <ion-button type="submit" expand="block" shape="round" (click)="register()">REGISTRARSE</ion-button>
-    <ion-label>¿Ya tienes cuenta? <a routerLink="/">Inicia sesión</a></ion-label>
+    <ion-button type="submit" expand="block" shape="round" color="tertiary" (click)="register()">REGISTRARSE</ion-button>
+    <ion-label>¿Ya tienes cuenta? <a routerLink="/initio">Inicia sesión</a></ion-label>
 
   </form>
 </ion-content>
